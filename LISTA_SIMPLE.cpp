@@ -1,17 +1,6 @@
 #include <iostream>
+#include "NODO.cpp"
 using namespace std;
-
-class Nodo
-{
-public:
-    int dato;
-    Nodo *siguiente;
-    Nodo(int dato)
-    {
-        this->dato = dato;
-        this->siguiente = NULL;
-    }
-};
 
 class Lista{
 private:
@@ -50,8 +39,6 @@ public:
             cout<<"Vacio";
         }
     }
-
-
 };
 
 
@@ -61,19 +48,17 @@ int main() {
     Lista *l = new Lista();
     Lista *lista1 = new Lista();
 
-    
     l->agregar(1);
     l->agregar(2);
     l->agregar(3);
     l->agregar(4);
     cout<<"Lista 1: ";
     l->mostrar();
+
     lista1->agregar(5);
     lista1->agregar(4);
     lista1->agregar(3);
     cout<<"Lista 2: ";
     lista1->mostrar();
-
-
     return 0;
 }
