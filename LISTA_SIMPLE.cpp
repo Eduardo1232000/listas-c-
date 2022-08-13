@@ -3,7 +3,7 @@ using namespace std;
 
 template <class T>
 class Nodo_simple{
-
+private:
 public:
     T dato;
     Nodo_simple<T> *siguiente;
@@ -15,11 +15,52 @@ public:
 
 template <typename T>
 class Lista_simple{
-private:
-public:
+private: 
+    int contador;
+    int valor;
+    T res;
     Nodo_simple<T> *inicio;
     Nodo_simple<T> *final;
     Nodo_simple<T> *actual;
+
+    int size(){
+        this->actual = this->inicio;
+        contador=0;
+        while(actual->siguiente!=NULL){
+            contador++;
+            this->actual= actual->siguiente;
+        }
+        contador++;
+        return contador;
+    }
+
+    int validar_posicion(int i){
+        this->actual = this->inicio;
+        contador=0;
+        valor = this->size();
+        if (i<valor){
+            return i;
+        }else{
+            return -1;
+        }    
+    }
+    T posicion(int i){
+        contador=0;
+        valor = this->validar_posicion(i);
+        contador=0;
+        this->actual=this->inicio;
+        if (valor == -1){
+            return -1;
+        } else{
+            while (contador<valor){
+                actual= actual->siguiente;
+                contador++;
+            }
+            return actual->dato;
+        }
+        return -1;
+    }  
+public:
 
     void insertar(T dato){
         Nodo_simple<T>* nuevo = new Nodo_simple<T>(dato);
@@ -62,4 +103,18 @@ public:
     void mostrar_final(){
         cout<<final->dato<<endl;
     }
+
+    void dimension(){
+        valor = this->size();
+        cout<<"SIZE DE LA LISTA: "<<valor<<endl;
+    }
+    
+    void mostrar_posicion(int n){
+        res = this->posicion(n);
+        if (res==-1){
+            cout<<"No existe ese valor"<<endl;
+        }else{
+            cout<<res<<endl;
+        }
+    }  
 };

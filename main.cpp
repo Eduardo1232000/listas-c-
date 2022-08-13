@@ -50,21 +50,23 @@ int main() {
     */
 
 // EJEMPLO DE LISTA SIMPLE================================================================================
-    /*
+    
     Lista_simple<int> *lista_simple = new Lista_simple<int>();
     lista_simple->insertar(5);
     lista_simple->insertar(4);
     lista_simple->insertar(3);
+    lista_simple->dimension();
     cout<<"Lista Simple de Enteros: ";
     lista_simple->mostrar();
-
     cout<<"PRIMER DATO: ";
     lista_simple->mostrar_inicial();
     cout<<"ULTIMO DATO: ";
     lista_simple->mostrar_final();
+    lista_simple->dimension();
+    lista_simple->mostrar_posicion(2);
 
     cout<<""<<endl;
-    */
+    
 
 //EJEMPLO DE LISTA DOBLE==================================================================================
     /*
@@ -104,7 +106,6 @@ int main() {
     lista_cirular->mostrar_inicial();
     lista_cirular->mostrar_final();
     */
-
 
     return 0;
 }
