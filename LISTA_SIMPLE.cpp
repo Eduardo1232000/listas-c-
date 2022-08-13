@@ -14,7 +14,7 @@ public:
 };
 
 template <typename T>
-class Lista_Simple{
+class Lista_simple{
 private:
 public:
     Nodo_simple<T> *inicio;
@@ -55,13 +55,11 @@ public:
             cout<<"Vacio";
         }
     }
-        void mostrar_inicial(){
-        Nodo_simple<T>* actual = this->inicio;
-        cout<<actual->dato<<endl;
+    void mostrar_inicial(){
+        cout<<inicio->dato<<endl;
     }
 
-        void mostrar_final(){
-        Nodo_simple<T>* actual = this->final;
-        cout<<actual->dato<<endl;
+    void mostrar_final(){
+        cout<<final->dato<<endl;
     }
 };

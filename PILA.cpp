@@ -2,44 +2,46 @@
 using namespace std;
 
 template <class T>
-class Nodo_doble{
+class Nodo_pila{
 public:
     T dato;
-    Nodo_doble<T>*siguiente;
-    Nodo_doble<T>*anterior;
-    Nodo_doble(T dato){
+    Nodo_pila<T>*siguiente;
+    Nodo_pila<T>*anterior;
+    Nodo_pila(T dato){
         this->dato = dato;
         this->siguiente = NULL;
     }
 };
 
 template <typename T>
-class Lista_doble{
+class Pila{
 private:
 public:
-    Nodo_doble<T> *inicio;
-    Nodo_doble<T> *final;
-    Nodo_doble<T> *actual;
+    Nodo_pila<T> *inicio;
+    Nodo_pila<T> *final;
+    Nodo_pila<T> *actual;
 
-    void insertar(T dato){
-        Nodo_doble<T>* nuevo = new Nodo_doble<T>(dato);
+    //insertar 
+    void push(T dato){
+        Nodo_pila<T>* nuevo = new Nodo_pila<T>(dato);
         nuevo->dato = dato;
         if (this->inicio == NULL){
-            this->inicio = new Nodo_doble<T>(dato);
-            this->final = new Nodo_doble<T>(dato);
+            this->inicio = new Nodo_pila<T>(dato);
+            this->final = new Nodo_pila<T>(dato);
         }else{
             actual = inicio;
-            while(actual->siguiente!=NULL){
-                actual= actual->siguiente;
-            } 
-            actual->siguiente= nuevo;
-            nuevo->anterior= final;
-            this->final = nuevo;
+            nuevo->siguiente= inicio;
+            this->inicio = nuevo;
         }
     }
 
+    //eliminar
+    void pop(){
+        this->inicio = this->inicio->siguiente;
+    }
+
     void mostrar(){
-        Nodo_doble<T>* actual = this->inicio;
+        Nodo_pila<T>* actual = this->inicio;
         if(actual!=NULL){
             cout<<"[";
             while(actual != NULL){
@@ -57,7 +59,7 @@ public:
         }
     }
 
-    void mostrar_inicial(){
+    void peek(){
         cout<<inicio->dato<<endl;
     }
 

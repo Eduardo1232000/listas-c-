@@ -2,31 +2,34 @@
 using namespace std;
 
 template <class T>
-class Nodo_doble{
+class Nodo_cola{
+
 public:
     T dato;
-    Nodo_doble<T>*siguiente;
-    Nodo_doble<T>*anterior;
-    Nodo_doble(T dato){
+    Nodo_cola<T> *siguiente;
+    Nodo_cola<T> *anterior;
+    Nodo_cola(T dato){
         this->dato = dato;
         this->siguiente = NULL;
+        this->anterior = NULL;
     }
 };
 
 template <typename T>
-class Lista_doble{
+class Cola{
 private:
 public:
-    Nodo_doble<T> *inicio;
-    Nodo_doble<T> *final;
-    Nodo_doble<T> *actual;
+    Nodo_cola<T> *inicio;
+    Nodo_cola<T> *final;
+    Nodo_cola<T> *actual;
 
-    void insertar(T dato){
-        Nodo_doble<T>* nuevo = new Nodo_doble<T>(dato);
+    //insertar
+    void enqueue(T dato){
+        Nodo_cola<T>* nuevo = new Nodo_cola<T>(dato);
         nuevo->dato = dato;
         if (this->inicio == NULL){
-            this->inicio = new Nodo_doble<T>(dato);
-            this->final = new Nodo_doble<T>(dato);
+            this->inicio = new Nodo_cola<T>(dato);
+            this->final = new Nodo_cola<T>(dato);
         }else{
             actual = inicio;
             while(actual->siguiente!=NULL){
@@ -38,8 +41,15 @@ public:
         }
     }
 
+    //eliminar
+    void dequeue(){
+        this->inicio = this->inicio->siguiente; 
+    }
+
+    
+
     void mostrar(){
-        Nodo_doble<T>* actual = this->inicio;
+        Nodo_cola<T>* actual = this->inicio;
         if(actual!=NULL){
             cout<<"[";
             while(actual != NULL){
@@ -57,7 +67,9 @@ public:
         }
     }
 
-    void mostrar_inicial(){
+
+    //mostrar inicial
+    void peek(){
         cout<<inicio->dato<<endl;
     }
 
