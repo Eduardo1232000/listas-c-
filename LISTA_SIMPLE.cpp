@@ -34,32 +34,21 @@ private:
         return contador;
     }
 
-    int validar_posicion(int i){
-        this->actual = this->inicio;
-        contador=0;
-        valor = this->size();
-        if (i<valor){
-            return i;
-        }else{
-            return -1;
-        }    
-    }
     T posicion(int i){
+        valor = this->size();
         contador=0;
-        valor = this->validar_posicion(i);
-        contador=0;
-        this->actual=this->inicio;
-        if (valor == -1){
+        this->actual = this->inicio;
+        if (i>=valor){
             return -1;
-        } else{
-            while (contador<valor){
+        }else{
+            while (contador<i){
                 actual= actual->siguiente;
                 contador++;
             }
             return actual->dato;
-        }
-        return -1;
+        }       
     }  
+    
 public:
 
     void insertar(T dato){

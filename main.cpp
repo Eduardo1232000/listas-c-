@@ -50,7 +50,7 @@ int main() {
     */
 
 // EJEMPLO DE LISTA SIMPLE================================================================================
-    
+   /* 
     Lista_simple<int> *lista_simple = new Lista_simple<int>();
     lista_simple->insertar(5);
     lista_simple->insertar(4);
@@ -66,7 +66,7 @@ int main() {
     lista_simple->mostrar_posicion(2);
 
     cout<<""<<endl;
-    
+    */
 
 //EJEMPLO DE LISTA DOBLE==================================================================================
     /*
