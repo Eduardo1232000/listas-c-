@@ -4,6 +4,7 @@
 #include "COLA.cpp"
 #include "PILA.cpp"
 #include "LISTA_CIRCULAR.cpp"
+#include "LISTA_LISTAS.cpp"
 
 using namespace std;
 
@@ -50,20 +51,18 @@ int main() {
     */
 
 // EJEMPLO DE LISTA SIMPLE================================================================================
-   /* 
+    /*
     Lista_simple<int> *lista_simple = new Lista_simple<int>();
     lista_simple->insertar(5);
     lista_simple->insertar(4);
     lista_simple->insertar(3);
-    lista_simple->dimension();
+    //lista_simple->dimension();
     cout<<"Lista Simple de Enteros: ";
     lista_simple->mostrar();
-    cout<<"PRIMER DATO: ";
-    lista_simple->mostrar_inicial();
-    cout<<"ULTIMO DATO: ";
-    lista_simple->mostrar_final();
-    lista_simple->dimension();
-    lista_simple->mostrar_posicion(2);
+    lista_simple->buscar("nick");
+    
+    //lista_simple->dimension();
+    //lista_simple->mostrar_posicion(2);
 
     cout<<""<<endl;
     */
@@ -96,15 +95,58 @@ int main() {
 //EJEMPLO DE LISTA CIRCULAR (DOBLEMENTE ENLAZADA)=========================================================    
     /*
     Lista_circular<int>* lista_cirular = new Lista_circular<int>();
+    Lista_circular<string>* lista = new Lista_circular<string>();
+    
     lista_cirular->insertar(1);
     lista_cirular->mostrar();
+
     lista_cirular->insertar(2);
     lista_cirular->mostrar();
+
     lista_cirular->insertar(3);
     lista_cirular->mostrar();
 
     lista_cirular->mostrar_inicial();
     lista_cirular->mostrar_final();
+    
+
+    lista->insertar("admin,admin,1000,22");
+    
+    
+    lista->insertar("eduardo,reyes,1001,23");
+    
+    //lista->mostrar();
+    
+    lista->insertar("alexander,gonzalez,1002,24");
+    lista->insertar("alex,gon,1003,4");
+    lista->mostrar();
+    
+    lista->mostrar();
+    lista->modificar_datos("admin", "admin","admin,admin_MODIFICADO,1000,22");
+    lista->mostrar();
+    
+    //lista->eliminar("admin","admin");
+    //lista->eliminar("eduardo", "reyes");
+    lista->eliminar("alex", "gon");
+    lista->mostrar();
+    */
+
+//EJEMPLO DE LISTA DE LISTAS (DOBLEMENTE ENLAZADA)========================================================
+    /*
+    Lista_listas<string>* listas =new Lista_listas<string>(); 
+    listas->insertar("comun");
+    listas->insertar("raro");
+    listas->insertar("epico");
+    listas->insertar("legendario");
+    listas->mostrar();
+    cout<<endl;
+    listas->insertar_hijo("comun","pistola");
+    listas->insertar_hijo("comun","escopeta");
+    listas->insertar_hijo("comun", "francotirador");
+    listas->insertar_hijo("raro","espada");
+    listas->insertar_hijo("legendario", "dinamita");
+
+    listas->mostrar();
     */
 
     return 0;

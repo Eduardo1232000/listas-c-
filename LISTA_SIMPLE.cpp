@@ -1,10 +1,17 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 template <class T>
 class Nodo_simple{
 private:
+        string nickname;
+        string password;
+        int monedas;
+        int edad;
+    
 public:
+
     T dato;
     Nodo_simple<T> *siguiente;
     Nodo_simple(T dato){
@@ -105,5 +112,20 @@ public:
         }else{
             cout<<res<<endl;
         }
+    }
+
+    void buscar(string nick){
+        //{ "nick": "", "password": "", "monedas": "", "edad": "" }
+        this->actual = this->inicio;
+        cout<<nick<<endl;
+        
+        
+
+        
     }  
+
+    void separar(string nick){
+        cout<<nick<<endl;
+        
+    }
 };
